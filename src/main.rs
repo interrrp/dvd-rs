@@ -12,7 +12,7 @@ fn main() {
     let mut dvd = dvd::Dvd::new(&mut rl, &thread, "logo.png");
 
     while !rl.window_should_close() {
-        dvd.update();
+        dvd.update(&mut rl);
 
         let mut d = rl.begin_drawing(&thread);
         d.clear_background(Color::BLACK);
