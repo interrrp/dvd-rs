@@ -25,6 +25,15 @@ impl Dvd {
     }
 
     pub fn update(&mut self, rl: &mut RaylibHandle) {
+        if self.x <= 0.0 || self.x + self.texture.width as f32 >= rl.get_screen_width() as f32 {
+            // Hit either left or right edge, reverse horizontal velocity
+            self.vel_x *= -1.0;
+        }
+        if self.y <= 0.0 || self.y + self.texture.height as f32 >= rl.get_screen_height() as f32 {
+            // Hit either top or bottom edge, reverse vertical velocity
+            self.vel_y *= -1.0;
+        }
+
         let dt = rl.get_frame_time();
         self.x += self.vel_x * dt;
         self.y += self.vel_y * dt;
