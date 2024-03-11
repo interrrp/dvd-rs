@@ -1,7 +1,11 @@
 [package]
 name = "dvd-rs"
+description = "The DVD screensaver in Rust"
 version = "0.1.0"
 edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.2", features = ["derive"] }
 
 [dependencies.raylib]
 version = "5.1.0"

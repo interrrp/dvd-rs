@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 use raylib::{
     color::Color,
     drawing::{RaylibDraw, RaylibDrawHandle},
@@ -14,13 +16,15 @@ pub struct Dvd {
 }
 
 impl Dvd {
-    pub fn new(rl: &mut RaylibHandle, thread: &RaylibThread, texture_path: &str) -> Self {
+    pub fn new(rl: &mut RaylibHandle, thread: &RaylibThread, texture_path: &PathBuf) -> Self {
         Self {
             x: 0.0,
             y: 0.0,
             vel_x: 250.0,
             vel_y: 250.0,
-            texture: rl.load_texture(&thread, texture_path).unwrap(),
+            texture: rl
+                .load_texture(&thread, texture_path.to_str().unwrap())
+                .unwrap(),
         }
     }
 
