@@ -18,8 +18,8 @@ impl Dvd {
         Self {
             x: 0.0,
             y: 0.0,
-            vel_x: 200.0,
-            vel_y: 200.0,
+            vel_x: 250.0,
+            vel_y: 250.0,
             texture: rl.load_texture(&thread, texture_path).unwrap(),
         }
     }
