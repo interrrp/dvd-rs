@@ -16,12 +16,18 @@ pub struct Dvd {
 }
 
 impl Dvd {
-    pub fn new(rl: &mut RaylibHandle, thread: &RaylibThread, texture_path: &PathBuf) -> Self {
+    pub fn new(
+        rl: &mut RaylibHandle,
+        thread: &RaylibThread,
+        vel_x: f32,
+        vel_y: f32,
+        texture_path: &PathBuf,
+    ) -> Self {
         Self {
             x: 0.0,
             y: 0.0,
-            vel_x: 250.0,
-            vel_y: 250.0,
+            vel_x,
+            vel_y,
             texture: rl
                 .load_texture(&thread, texture_path.to_str().unwrap())
                 .unwrap(),

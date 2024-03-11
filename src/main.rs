@@ -13,7 +13,7 @@ fn main() {
         .vsync()
         .build();
 
-    let mut dvd = dvd::Dvd::new(&mut rl, &thread, &args.logo_path);
+    let mut dvd = dvd::Dvd::new(&mut rl, &thread, args.x_vel, args.y_vel, &args.logo_path);
 
     while !rl.window_should_close() {
         dvd.update(&mut rl);
